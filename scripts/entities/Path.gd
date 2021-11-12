@@ -32,3 +32,4 @@ func _on_TextureButton_pressed():
 	left = new_left
 	right = new_right
 
+	Game.checkEvent()

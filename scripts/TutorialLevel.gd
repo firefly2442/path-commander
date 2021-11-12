@@ -3,7 +3,7 @@ extends Control
 var tutorial_level: int = 0
 
 func _ready():
-	pass
+	Game.gametype = "tutorial"
 
 func _on_Node_set_tutorial_level(level):
 	tutorial_level = level
