@@ -16,8 +16,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-TutorialLevel="*res://scenes/TutorialLevel.tscn"
-SurvivalLevel="*res://scenes/SurvivalLevel.tscn"
 Game="*res://scenes/Game.tscn"
 
 [display]

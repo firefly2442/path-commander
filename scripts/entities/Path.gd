@@ -16,20 +16,29 @@ func _on_TextureButton_pressed():
 	var new_left: bool = false
 	var new_right: bool = false
 	if up:
-		new_up = false
 		new_right = true
 	if right:
-		new_right = false
 		new_down = true
 	if down:
-		new_down = false
 		new_left = true
 	if left:
-		new_left = false
 		new_up = true
-	up = new_up
-	down = new_down
-	left = new_left
-	right = new_right
+
+	if new_up:
+		up = true
+	else:
+		up = false
+	if new_down:
+		down = true
+	else:
+		down = false
+	if new_left:
+		left = true
+	else:
+		left = false
+	if new_right:
+		right = true
+	else:
+		right = false
 
 	Game.checkEvent()

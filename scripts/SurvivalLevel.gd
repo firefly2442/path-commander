@@ -2,4 +2,6 @@ extends Node
 
 
 func _ready():
-	Game.gametype = "survival"
+	# TODO: set level node instance
+	Game.game_type = "survival"
+	Game.level_node = 0

@@ -3,7 +3,7 @@
 [ext_resource path="res://themes/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/TutorialSelection.gd" type="Script" id=2]
 
-[node name="Node" type="Node"]
+[node name="TutorialSelection" type="Node"]
 script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -28,7 +28,7 @@ text = "Tutorials"
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 1880.0
-margin_bottom = 1040.0
+margin_bottom = 954.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 30
@@ -65,8 +65,17 @@ margin_right = 664.0
 margin_bottom = 194.0
 text = "Level 5"
 
+[node name="Back_btn" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 958.0
+margin_right = 198.0
+margin_bottom = 1040.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Tutorial_1_btn" to="." method="_on_Tutorial_1_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Tutorial_2_btn" to="." method="_on_Tutorial_2_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Tutorial_3_btn" to="." method="_on_Tutorial_3_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Tutorial_4_btn" to="." method="_on_Tutorial_4_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Tutorial_5_btn" to="." method="_on_Tutorial_5_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back_btn" to="." method="_on_Back_btn_pressed"]
