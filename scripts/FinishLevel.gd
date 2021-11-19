@@ -2,8 +2,10 @@ extends Control
 
 
 func _ready():
-	pass
-
+	$MarginContainer/HBoxContainer/VBoxContainer/ResultStatusLabel.text = Game.result_string
+	# https://docs.godotengine.org/en/3.4/getting_started/scripting/gdscript/gdscript_format_string.html
+	$MarginContainer/HBoxContainer/VBoxContainer/StopwatchLabel.text = "%s %.2f seconds" % [$MarginContainer/HBoxContainer/VBoxContainer/StopwatchLabel.text, Game.result_stopwatch]
+	$MarginContainer/HBoxContainer/VBoxContainer/NumClicksLabel.text = "%d clicks" % [Game.result_num_clicks]
 
 func _on_Continue_btn_pressed():
 	if Game.gametype == "tutorial":

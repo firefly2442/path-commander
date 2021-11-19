@@ -41,4 +41,4 @@ func _on_TextureButton_pressed():
 	else:
 		right = false
 
-	Game.checkEvent()
+	Game.checkMouseEvent()

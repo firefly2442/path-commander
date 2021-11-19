@@ -1,8 +1,14 @@
 extends Node
 
 var level_node
-var gametype
-var recursive_checked = []
+var gametype: String = ""
+var recursive_checked: Array = []
+
+var result_string: String = ""
+# counts up as a stopwatch to store how long a level took
+var result_run_stopwatch: bool = false
+var result_stopwatch: float = 0
+var result_num_clicks: int = 0
 
 signal won
 signal lost
@@ -10,17 +16,31 @@ signal lost
 func _ready():
 	pass
 
-func checkEvent():
+func _process(delta):
+	if result_run_stopwatch:
+		self.result_stopwatch += delta
+
+func resetResults():
+	self.result_string = ""
+	self.result_stopwatch = 0
+	self.result_num_clicks = 0
+
+func checkMouseEvent():
+	# increment click event
+	self.result_num_clicks += 1
+	
 	var board = level_node.find_node("GridBoard", true, false)
 	# check for win
 	var start = board.find_node("Start")
-	recursive_checked = []
+	self.recursive_checked = []
 	_recursiveCheckWinPath(level_node, board, start)
 
 
 func _recursiveCheckWinPath(level, board, node):
-	recursive_checked.append(node)
+	self.recursive_checked.append(node)
 	if node.name == "End":
+		self.result_string = "Won"
+		self.result_run_stopwatch = false
 		emit_signal("won")
 	
 	# find all outbound paths from node

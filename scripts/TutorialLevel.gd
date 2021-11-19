@@ -6,7 +6,8 @@ var board_cols: int = 0
 
 func _ready():
 	var _c = Game.connect("won", self, "_on_win")
-
+	Game.resetResults()
+	Game.result_run_stopwatch = true
 
 func _on_Node_set_tutorial_level(level):
 	Game.gametype = "tutorial"
