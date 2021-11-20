@@ -19,8 +19,8 @@ func _on_Node_set_tutorial_level(level):
 	
 	# figure out the rows x columns dimensions of the game board and save for later
 	var board = self.find_node("GridBoard", true, false)
-	board_cols = board.columns
-	board_rows = board.get_child_count() / board.columns
+	self.board_cols = board.columns
+	self.board_rows = board.get_child_count() / board.columns
 
 func _exit_tree():
 	self.queue_free()

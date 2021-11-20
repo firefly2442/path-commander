@@ -10,11 +10,15 @@ var result_run_stopwatch: bool = false
 var result_stopwatch: float = 0
 var result_num_clicks: int = 0
 
+var timer: Timer = Timer.new()
+
 signal won
 signal lost
 
 func _ready():
-	pass
+	self.add_child(self.timer)
+	self.timer.one_shot = true
+	var _c = self.timer.connect("timeout", self, "_on_timer_timeout") 
 
 func _process(delta):
 	if result_run_stopwatch:
@@ -70,3 +74,7 @@ func _getXYNodePosition(level, board, node):
 		if col > level.board_cols:
 			col = 1
 			row = row + 1
+
+func _on_timer_timeout():
+	emit_signal("lost")
+

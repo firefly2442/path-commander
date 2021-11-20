@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=2 format=2]
+[gd_resource type="Theme" load_steps=4 format=2]
 
 [ext_resource path="res://fonts/Kenney/KenneyBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://images/ui/checkbox_checked.png" type="Texture" id=2]
+[ext_resource path="res://images/ui/checkbox_blank.png" type="Texture" id=3]
 
 [resource]
 default_font = ExtResource( 1 )
@@ -15,6 +17,8 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = null
 Button/styles/pressed = null
+CheckBox/icons/checked = ExtResource( 2 )
+CheckBox/icons/unchecked = ExtResource( 3 )
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
