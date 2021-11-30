@@ -24,6 +24,39 @@ margin_bottom = 1060.0
 margin_right = 1880.0
 margin_bottom = 76.0
 text = "Options"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 1880.0
+margin_bottom = 162.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 454.0
+margin_bottom = 79.0
+text = "Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 458.0
+margin_right = 893.0
+margin_bottom = 82.0
+text = "1920x1080"
+items = [ "640x360", null, false, 0, null, "1280x720", null, false, 1, null, "1920x1080", null, false, 2, null, "2560x1440", null, false, 3, null, "3840x2160", null, false, 4, null ]
+selected = 2
+
+[node name="FullScreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 1880.0
+margin_bottom = 250.0
+text = "Fullscreen"
+
+[node name="VsyncCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+margin_top = 254.0
+margin_right = 1880.0
+margin_bottom = 338.0
+pressed = true
+text = "Vsync"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 958.0
@@ -44,3 +77,4 @@ size_flags_horizontal = 10
 text = "Save"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back_btn" to="." method="_on_Back_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Save_btn" to="." method="_on_Save_btn_pressed"]

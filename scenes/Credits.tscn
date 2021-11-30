@@ -32,6 +32,7 @@ margin_bottom = 1060.0
 margin_right = 1880.0
 margin_bottom = 76.0
 text = "Credits"
+align = 1
 
 [node name="CreditsRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 margin_top = 80.0

@@ -20,10 +20,11 @@ margin_top = 20.0
 margin_right = 1900.0
 margin_bottom = 1060.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="TutorialsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 1880.0
 margin_bottom = 76.0
 text = "Tutorials"
+align = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 80.0
