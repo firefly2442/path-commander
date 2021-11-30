@@ -13,3 +13,7 @@ func _on_Start_btn_pressed():
 	get_tree().get_root().add_child(Game.level_node)
 	get_tree().set_current_scene(Game.level_node)
 	get_tree().get_root().remove_child(get_tree().get_root().find_node("SurvivalSetup", true, false))
+
+
+func _on_Back_btn_pressed():
+	assert(get_tree().change_scene("res://scenes/MainMenu.tscn") == OK, "Error swapping scene")

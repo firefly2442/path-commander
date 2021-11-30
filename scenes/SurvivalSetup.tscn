@@ -91,6 +91,14 @@ min_value = 4.0
 max_value = 12.0
 value = 8.0
 
+[node name="Back_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 958.0
+margin_right = 198.0
+margin_bottom = 1040.0
+size_flags_horizontal = 0
+size_flags_vertical = 10
+text = "Back"
+
 [node name="Start_btn" type="Button" parent="MarginContainer/HBoxContainer"]
 margin_left = 1632.0
 margin_top = 958.0
@@ -100,4 +108,5 @@ size_flags_horizontal = 14
 size_flags_vertical = 14
 text = "Start"
 
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Back_btn" to="." method="_on_Back_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Start_btn" to="." method="_on_Start_btn_pressed"]

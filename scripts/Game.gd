@@ -35,29 +35,35 @@ func checkMouseEvent():
 	
 	var board = level_node.find_node("GridBoard", true, false)
 	# check for win
-	var start = board.find_node("Start")
+	var start = board.find_node("Start", true, false)
 	self.recursive_checked = []
-	_recursiveCheckWinPath(level_node, board, start)
+	recursiveCheckWinPath(level_node, board, start, true)
 
 
-func _recursiveCheckWinPath(level, board, node):
+func recursiveCheckWinPath(level, board, node, emit):
 	self.recursive_checked.append(node)
 	if node.name == "End":
-		self.result_string = "Won"
-		self.result_run_stopwatch = false
-		emit_signal("won")
+		if emit:
+			self.result_string = "Won"
+			self.result_run_stopwatch = false
+			emit_signal("won")
+		else:
+			return true
 	
 	# find all outbound paths from node
 	# check it against the board grid
 	var pos = _getXYNodePosition(level, board, node)
 	if node.up and (pos[0]-1) > 0 and !recursive_checked.has(_getBoardItemXY(level, board, pos[0]-1, pos[1])) and _getBoardItemXY(level, board, pos[0]-1, pos[1]).down:
-		_recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0]-1, pos[1]))
+		recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0]-1, pos[1]), emit)
 	if node.down and (pos[0]+1) <= level.board_rows and !recursive_checked.has(_getBoardItemXY(level, board, pos[0]+1, pos[1])) and _getBoardItemXY(level, board, pos[0]+1, pos[1]).up:
-		_recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0]+1, pos[1]))
+		recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0]+1, pos[1]), emit)
 	if node.left and (pos[1]-1) > 0 and !recursive_checked.has(_getBoardItemXY(level, board, pos[0], pos[1]-1)) and _getBoardItemXY(level, board, pos[0], pos[1]-1).right:
-		_recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0], pos[1]-1))
+		recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0], pos[1]-1), emit)
 	if node.right and (pos[1]+1) <= level.board_cols and !recursive_checked.has(_getBoardItemXY(level, board, pos[0], pos[1]+1)) and _getBoardItemXY(level, board, pos[0], pos[1]+1).left:
-		_recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0], pos[1]+1))
+		recursiveCheckWinPath(level, board, _getBoardItemXY(level, board, pos[0], pos[1]+1), emit)
+
+	if !emit:
+		return false
 
 
 func _getBoardItemXY(level, board, row, col):
@@ -76,5 +82,7 @@ func _getXYNodePosition(level, board, node):
 			row = row + 1
 
 func _on_timer_timeout():
+	self.result_string = "Lost"
+	self.result_run_stopwatch = false
 	emit_signal("lost")
 
