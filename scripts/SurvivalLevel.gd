@@ -24,7 +24,7 @@ func _ready():
 	
 	Game.timer.start()
 	
-func _process(delta):
+func _process(_delta):
 	var spinbox = self.find_node("CountdownSpinBox", true, false)
 	spinbox.value = Game.timer.time_left
 
