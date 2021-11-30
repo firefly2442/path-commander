@@ -23,6 +23,10 @@ func _ready():
 	Game.result_run_stopwatch = true
 	
 	Game.timer.start()
+	
+func _process(delta):
+	var spinbox = self.find_node("CountdownSpinBox", true, false)
+	spinbox.value = Game.timer.time_left
 
 func _exit_tree():
 	self.queue_free()

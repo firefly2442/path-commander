@@ -23,15 +23,35 @@ margin_top = 20.0
 margin_right = 1900.0
 margin_bottom = 1060.0
 
-[node name="SurvivalLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1880.0
-margin_bottom = 76.0
+margin_bottom = 86.0
+
+[node name="SurvivalLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 357.0
+margin_bottom = 81.0
 text = "Survival"
 
-[node name="Board" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_top = 80.0
+[node name="CountdownLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 1147.0
+margin_top = 5.0
+margin_right = 1574.0
+margin_bottom = 81.0
+size_flags_horizontal = 10
+text = "Countdown"
+
+[node name="CountdownSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 1578.0
 margin_right = 1880.0
-margin_bottom = 80.0
+margin_bottom = 86.0
+max_value = 300.0
+editable = false
+
+[node name="Board" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 1880.0
+margin_bottom = 90.0
 
 [node name="GridBoard" type="GridContainer" parent="MarginContainer/VBoxContainer/Board"]
 margin_right = 40.0
