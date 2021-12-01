@@ -29,6 +29,7 @@ func _process(_delta):
 	spinbox.value = Game.timer.time_left
 
 func _exit_tree():
+	Game.level_node = null
 	self.queue_free()
 
 func _on_win():

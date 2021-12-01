@@ -17,3 +17,6 @@ func _on_Start_btn_pressed():
 
 func _on_Back_btn_pressed():
 	assert(get_tree().change_scene("res://scenes/MainMenu.tscn") == OK, "Error swapping scene")
+
+func _exit_tree():
+	self.queue_free()

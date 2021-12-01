@@ -8,6 +8,9 @@ var right: bool = false
 func _ready():
 	pass
 
+func _exit_tree():
+	self.queue_free()
+
 func _on_TextureButton_pressed():
 	self.set_rotation_degrees(self.get_rotation_degrees() + 90)
 	

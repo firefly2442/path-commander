@@ -5,11 +5,11 @@ var _settings := {resolution = Vector2(1920, 1080), fullscreen = false, vsync = 
 func _ready():
 	self._settings.fullscreen = OS.window_fullscreen
 	var fullscreen = self.find_node("FullScreenCheckBox", true, false)
-	fullscreen.pressed = _settings.fullscreen
+	fullscreen.pressed = self._settings.fullscreen
 	
 	self._settings.vsync = OS.vsync_enabled
 	var vsync = self.find_node("VsyncCheckBox", true, false)
-	vsync.pressed = _settings.vsync
+	vsync.pressed = self._settings.vsync
 	
 	var resolution = self.find_node("ResolutionOptionButton", true, false)
 	for res in range(0, resolution.get_item_count()):
@@ -35,6 +35,9 @@ func _on_Save_btn_pressed():
 	
 	# apply the settings
 	# https://www.gdquest.com/tutorial/godot/2d/settings-demo/
-	OS.window_fullscreen = _settings.fullscreen
-	OS.set_window_size(_settings.resolution)
-	OS.vsync_enabled = _settings.vsync
+	OS.window_fullscreen = self._settings.fullscreen
+	OS.set_window_size(self._settings.resolution)
+	OS.vsync_enabled = self._settings.vsync
+
+func _exit_tree():
+	self.queue_free()

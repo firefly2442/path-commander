@@ -16,8 +16,7 @@ https://github.com/firebelley/godot-export
 
 ## Licenses
 
-* Images from Kenney are under Creative Commons Zero (CC0)
-* Fonts from Kenney are under Creative Commons Zero (CC0)
+* Images/Fonts/Sounds from Kenney are under Creative Commons Zero (CC0)
 * Roboto font is under Apache Version 2
 * GDScript code and all other content is under GPLv3
 
@@ -28,6 +27,8 @@ https://github.com/firebelley/godot-export
 * Use the debugger and the `misc` tab to debug mouse click events.  This can show where in the node hierarchy it's getting stuck.
 * If something isn't clickable, traverse up the node tree and set the Mouse -> Filter property to `Ignore`.
 * Target screen resolution 1920x1080
+* Orphaned/stray nodes are nodes that have exited the scene tree but still exist in memory resulting in a memory leak.  You
+can use `get_tree().get_root().print_stray_nodes()` to debug and find them.
 
 ## References and Tutorials
 

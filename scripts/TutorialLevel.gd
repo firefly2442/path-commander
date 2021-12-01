@@ -13,8 +13,7 @@ func _on_Node_set_tutorial_level(level):
 	Game.gametype = "tutorial"
 	tutorial_level = level
 	var scene = load("res://scenes/tutorials/tutorial_level_" + str(level) + ".tscn")
-	var instance = scene.instance()
-	self.find_node("Board").add_child(instance)
+	self.find_node("Board").add_child(scene.instance())
 	self.find_node("TutorialLabel").set_text("Tutorial " + str(level))
 	
 	# figure out the rows x columns dimensions of the game board and save for later
@@ -23,6 +22,7 @@ func _on_Node_set_tutorial_level(level):
 	self.board_rows = board.get_child_count() / board.columns
 
 func _exit_tree():
+	Game.level_node = null
 	self.queue_free()
 
 func _on_win():
