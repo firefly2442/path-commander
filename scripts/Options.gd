@@ -3,7 +3,20 @@ extends Control
 var _settings := {resolution = Vector2(1920, 1080), fullscreen = false, vsync = false}
 
 func _ready():
-	pass
+	self._settings.fullscreen = OS.window_fullscreen
+	var fullscreen = self.find_node("FullScreenCheckBox", true, false)
+	fullscreen.pressed = _settings.fullscreen
+	
+	self._settings.vsync = OS.vsync_enabled
+	var vsync = self.find_node("VsyncCheckBox", true, false)
+	vsync.pressed = _settings.vsync
+	
+	var resolution = self.find_node("ResolutionOptionButton", true, false)
+	for res in range(0, resolution.get_item_count()):
+		var res_str: String = resolution.get_item_text(res)
+		var values := res_str.split_floats("x")
+		if OS.get_window_size() == Vector2(values[0], values[1]):
+			resolution.selected = res
 
 func _on_Back_btn_pressed():
 	assert(get_tree().change_scene("res://scenes/MainMenu.tscn") == OK, "Error swapping scene")
