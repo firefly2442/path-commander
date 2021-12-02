@@ -3,6 +3,8 @@ on:
     tags:
       - 'v*'
 
+name: release
+
 jobs:
   export_game:
     # Always use ubuntu-latest for this action
