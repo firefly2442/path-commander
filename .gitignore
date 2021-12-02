@@ -3,6 +3,10 @@
 export.cfg
 export_presets.cfg
 
+# build files
+.exe
+.pck
+
 # Mono-specific ignores
 .mono/
 
