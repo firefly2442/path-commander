@@ -4,7 +4,8 @@ Path Commander is a simple puzzle routing game built in the [Godot game engine](
 
 ![Logo](icon.png)
 
-![release](https://img.shields.io/github/v/release/firefly2442/path-commander.svg)
+[![release](https://img.shields.io/github/v/release/firefly2442/path-commander.svg)](https://github.com/firefly2442/path-commander/releases)
+![build](https://img.shields.io/github/workflow/status/firefly2442/path-commander/release)
 
 ## Introduction
 
@@ -12,7 +13,7 @@ The objective is to create a path between two points on a two-dimensional grid b
 
 ## Downloading
 
-[Download the latest release](https://github.com/firefly2442/path-commander/releases)
+[Download the latest release via Github](https://github.com/firefly2442/path-commander/releases)
 
 ## Building and Development
 
