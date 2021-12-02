@@ -28,7 +28,9 @@ https://github.com/firebelley/godot-export
 * If something isn't clickable, traverse up the node tree and set the Mouse -> Filter property to `Ignore`.
 * Target screen resolution 1920x1080
 * Orphaned/stray nodes are nodes that have exited the scene tree but still exist in memory resulting in a memory leak.  You
-can use `get_tree().get_root().print_stray_nodes()` to debug and find them.
+can use `get_tree().get_root().print_stray_nodes()` to debug and find them.  If the code ever calls `instance()` but then
+discarding it without `add_child()` or if the code is using `remove_child()` without `queue_free()` these are cases that
+would create stray nodes.
 
 ## References and Tutorials
 

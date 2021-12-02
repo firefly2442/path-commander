@@ -22,6 +22,7 @@ func _on_Node_set_tutorial_level(level):
 	self.board_rows = board.get_child_count() / board.columns
 
 func _exit_tree():
+	Game.level_node.queue_free()
 	Game.level_node = null
 	self.queue_free()
 
