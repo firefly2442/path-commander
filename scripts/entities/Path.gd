@@ -12,6 +12,8 @@ func _exit_tree():
 	self.queue_free()
 
 func _on_TextureButton_pressed():
+	AudioManager.play("res://sounds/click1.ogg")
+	
 	self.set_rotation_degrees(self.get_rotation_degrees() + 90)
 	
 	var new_up: bool = false

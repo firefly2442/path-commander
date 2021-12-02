@@ -31,6 +31,7 @@ https://github.com/firebelley/godot-export
 can use `get_tree().get_root().print_stray_nodes()` to debug and find them.  If the code ever calls `instance()` but then
 discarding it without `add_child()` or if the code is using `remove_child()` without `queue_free()` these are cases that
 would create stray nodes.
+* The `.ogg` sound files needed to be re-imported with loop turned off to prevent them from continuously playing and looping.
 
 ## References and Tutorials
 

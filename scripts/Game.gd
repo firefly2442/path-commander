@@ -44,6 +44,7 @@ func recursiveCheckWinPath(level, board, node, emit):
 	self.recursive_checked.append(node)
 	if node.name == "End":
 		if emit:
+			AudioManager.play("res://sounds/you_win.ogg")
 			self.result_string = "Won"
 			self.result_run_stopwatch = false
 			emit_signal("won")
@@ -84,5 +85,6 @@ func _getXYNodePosition(level, board, node):
 func _on_timer_timeout():
 	self.result_string = "Lost"
 	self.result_run_stopwatch = false
+	AudioManager.play("res://sounds/you_lose.ogg")
 	emit_signal("lost")
 
