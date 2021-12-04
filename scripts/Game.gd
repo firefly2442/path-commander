@@ -12,6 +12,9 @@ var result_num_clicks: int = 0
 
 var timer: Timer = Timer.new()
 
+var powerups_enabled: bool = false
+var powerup_timer: Timer = Timer.new()
+
 signal won
 signal lost
 
@@ -19,6 +22,12 @@ func _ready():
 	self.add_child(self.timer)
 	self.timer.one_shot = true
 	var _c = self.timer.connect("timeout", self, "_on_timer_timeout") 
+	
+	if self.powerups_enabled:
+		self.add_child(self.powerup_timer)
+		self.powerup_timer.one_shot = true
+		self.powerup_timer.time_left = 20
+		var _p = self.powerup_timer.connect("timeout", self, "_on_powerup_timer_timeout")
 
 func _process(delta):
 	if result_run_stopwatch:
@@ -87,4 +96,13 @@ func _on_timer_timeout():
 	self.result_run_stopwatch = false
 	AudioManager.play("res://sounds/you_lose.ogg")
 	emit_signal("lost")
+	
+func _on_powerup_timer_timeout():
+	pass
+
+func extraTimeClicked():
+	if self.gametype == "survival":
+		self.timer.start(self.timer.time_left + 30)
+	# replace the powerup with a blank
+	self.level_node.swapOutPowerup()
 

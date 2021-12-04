@@ -33,7 +33,7 @@ margin_bottom = 76.0
 text = "Survival Setup"
 align = 1
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="PowerupsCheckBox" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 1310.0
 margin_bottom = 164.0

@@ -5,24 +5,30 @@ var board_cols: int = 0
 
 func _ready():
 	var board = self.find_node("GridBoard", true, false)
-	board.columns = self.board_cols
 	
-	# generate random placement of board pieces
-	_generateRandomBoardPieces(board)
-	Game.recursive_checked = []
-	# make sure the path doesn't immediately have a solution with no rotations needed
-	while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false):
+	if Game.gametype == "tutorial":
+		$MarginContainer/VBoxContainer/Board.remove_child($MarginContainer/VBoxContainer/Board.get_child(0))
+
+	if Game.gametype == "survival":
+		board.columns = self.board_cols
+		
+		$MarginContainer/VBoxContainer/HBoxContainer/TitleLabel.text = "Survival"
+		
+		# generate random placement of board pieces
 		_generateRandomBoardPieces(board)
 		Game.recursive_checked = []
-	
-	Game.gametype = "survival"
+		# make sure the path doesn't immediately have a solution with no rotations needed
+		while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false):
+			_generateRandomBoardPieces(board)
+			Game.recursive_checked = []
 	
 	Game.resetResults()
 	var _c = Game.connect("won", self, "_on_win")
 	_c = Game.connect("lost", self, "_on_loss")
 	Game.result_run_stopwatch = true
 	
-	Game.timer.start()
+	if Game.gametype == "survival":
+		Game.timer.start()
 	
 func _process(_delta):
 	var spinbox = self.find_node("CountdownSpinBox", true, false)
@@ -38,6 +44,12 @@ func _on_win():
 
 func _on_loss():
 	assert(get_tree().change_scene("res://scenes/FinishLevel.tscn") == OK, "Error swapping scene")
+
+func _on_Node_set_tutorial_level(level):
+	Game.gametype = "tutorial"
+	var scene = load("res://scenes/tutorials/tutorial_level_" + str(level) + ".tscn")
+	self.find_node("Board").add_child(scene.instance())
+	self.find_node("TitleLabel").set_text("Tutorial " + str(level))
 
 func _generateRandomBoardPieces(board):
 	var rng = RandomNumberGenerator.new()
@@ -140,3 +152,12 @@ func _rotatePiecePosition(board, row, col, degrees):
 
 func _rowColToIndex(row, col):
 	return (((row-1) * self.board_cols) + col)-1
+
+func swapOutPowerup():
+	var board = self.find_node("GridBoard", true, false)
+	for row in range(1,board_rows+1):
+		for col in range(1,board_cols+1):
+			if _getBoardItemXY(board, row, col).name == "ExtraTime":
+				var item = preload("res://scenes/entities/special/special_Blank.tscn").instance()
+				_replaceBoardItemXY(board, row, col, item)
+	

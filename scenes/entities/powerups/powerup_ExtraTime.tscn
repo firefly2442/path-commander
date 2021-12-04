@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/entities/powerups/Powerup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/powerups/yellow_diamond.png" type="Texture" id=2]
+[ext_resource path="res://images/powerups/red_diamond.png" type="Texture" id=3]
+[ext_resource path="res://scripts/entities/powerup_ExtraTime.gd" type="Script" id=4]
+
+[node name="ExtraTime" instance=ExtResource( 1 )]
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Node" type="Node" parent="." index="0"]
+script = ExtResource( 4 )

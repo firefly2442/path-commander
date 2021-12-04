@@ -3,7 +3,8 @@ extends Node
 signal set_tutorial_level(level)
 
 func _ready():
-	Game.level_node = preload("res://scenes/TutorialLevel.tscn").instance()
+	Game.level_node = preload("res://scenes/Level.tscn").instance()
+	Game.gametype = "tutorial"
 	var _c = self.connect("set_tutorial_level", Game.level_node, "_on_Node_set_tutorial_level")
 
 
@@ -33,6 +34,9 @@ func _swapTutorial():
 	var tut = get_tree().get_root().find_node("TutorialSelection", true, false)
 	get_tree().get_root().remove_child(tut)
 	tut.queue_free()
+	var board = Game.level_node.find_node("GridBoard", true, false)
+	Game.level_node.board_cols = board.columns
+	Game.level_node.board_rows = board.get_child_count() / board.columns
 
 func _on_Back_btn_pressed():
 	assert(get_tree().change_scene("res://scenes/MainMenu.tscn") == OK, "Error swapping scene")

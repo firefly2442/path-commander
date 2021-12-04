@@ -1,11 +1,74 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/TutorialLevel.gd" type="Script" id=1]
 [ext_resource path="res://themes/MainTheme.tres" type="Theme" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var tutorial_level: int = 0
+var board_rows: int = 0
+var board_cols: int = 0
+
+func _ready():
+	var _c = Game.connect(\"won\", self, \"_on_win\")
+	Game.resetResults()
+	Game.result_run_stopwatch = true
+
+func _on_Node_set_tutorial_level(level):
+	Game.gametype = \"tutorial\"
+	tutorial_level = level
+	var scene = load(\"res://scenes/tutorials/tutorial_level_\" + str(level) + \".tscn\")
+	self.find_node(\"Board\").add_child(scene.instance())
+	self.find_node(\"TutorialLabel\").set_text(\"Tutorial \" + str(level))
+	
+	# figure out the rows x columns dimensions of the game board and save for later
+	var board = self.find_node(\"GridBoard\", true, false)
+	self.board_cols = board.columns
+	self.board_rows = board.get_child_count() / board.columns
+
+func _exit_tree():
+	Game.level_node.queue_free()
+	Game.level_node = null
+	self.queue_free()
+
+func _on_win():
+	assert(get_tree().change_scene(\"res://scenes/FinishLevel.tscn\") == OK, \"Error swapping scene\")
+	
+func _getBoardItemXY(board, row, col):
+	return board.get_child(_rowColToIndex(row, col))
+	
+func _replaceBoardItemXY(board, row, col, item):
+	var toremove = _getBoardItemXY(board, row, col)
+	board.remove_child(toremove)
+	_placeBoardItemXY(board, row, col, item)
+
+func _placeBoardItemXY(board, row, col, item):
+	board.add_child(item)
+	board.move_child(item, _rowColToIndex(row, col))
+
+func _rotatePiecePosition(board, row, col, degrees):
+	# TODO: this doesn't seem to work, rotation likely is coming from a parent node
+	var item = _getBoardItemXY(board, row, col)
+	if (degrees == null):
+		degrees = item.get_rotation_degrees() + 90
+	item.set_rotation_degrees(degrees)
+	
+
+func _rowColToIndex(row, col):
+	return (((row-1) * self.board_cols) + col)-1
+
+func swapOutPowerup():
+	var board = self.find_node(\"GridBoard\", true, false)
+	for row in range(1,board_rows+1):
+		for col in range(1,board_cols+1):
+			if _getBoardItemXY(board, row, col).name == \"ExtraTime\":
+				var item = preload(\"res://scenes/entities/special/special_Blank.tscn\").instance()
+				_replaceBoardItemXY(board, row, col, item)
+"
 
 [node name="TutorialLevelControl" type="Control"]
 theme = ExtResource( 2 )
-script = ExtResource( 1 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
