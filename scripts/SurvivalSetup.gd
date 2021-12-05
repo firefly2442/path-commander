@@ -10,7 +10,7 @@ func _on_Start_btn_pressed():
 	Game.level_node.board_rows = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/RowsSpinBox.value
 	Game.level_node.board_cols = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ColsSpinBox.value
 	Game.timer.wait_time = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/TimerSpinBox.value
-	Game.powerups_enabled = $MarginContainer/HBoxContainer/VBoxContainer/PowerupsCheckBox.pressed
+	Game.powerups_enabled = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/PowerupsCheckBox.pressed
 	
 	get_tree().get_root().add_child(Game.level_node)
 	get_tree().set_current_scene(Game.level_node)
@@ -22,3 +22,15 @@ func _on_Back_btn_pressed():
 
 func _exit_tree():
 	self.queue_free()
+
+
+func _on_PowerupHelpTextureRect_mouse_entered():
+	var c = preload("res://scenes/instances/Popup_Help.tscn").instance()
+	c.titletext = "Powerups"
+	c.helptext = "Powerups grant extra time and other abilities when clicked."
+	c.rect_position = get_viewport().get_mouse_position()
+	get_tree().get_root().add_child(c)
+
+
+func _on_PowerupHelpTextureRect_mouse_exited():
+	get_tree().get_root().remove_child(get_tree().get_root().find_node("PopupHelp", true, false))
