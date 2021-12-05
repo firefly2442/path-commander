@@ -1,4 +1,4 @@
-extends TextureButton
+extends Control
 
 var up: bool = false
 var down: bool = false

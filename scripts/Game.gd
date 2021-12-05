@@ -13,6 +13,7 @@ var result_num_clicks: int = 0
 var timer: Timer = Timer.new()
 
 var powerups_enabled: bool = false
+var powerup_in_play: bool = false
 var powerup_timer: Timer = Timer.new()
 
 signal won
@@ -23,11 +24,11 @@ func _ready():
 	self.timer.one_shot = true
 	var _c = self.timer.connect("timeout", self, "_on_timer_timeout") 
 	
-	if self.powerups_enabled:
-		self.add_child(self.powerup_timer)
-		self.powerup_timer.one_shot = true
-		self.powerup_timer.time_left = 20
-		var _p = self.powerup_timer.connect("timeout", self, "_on_powerup_timer_timeout")
+	self.add_child(self.powerup_timer)
+	self.powerup_timer.one_shot = false	
+	var _p = self.powerup_timer.connect("timeout", self, "_on_powerup_timer_timeout")
+	self.powerup_timer.start(12)
+	self.powerup_timer.stop()
 
 func _process(delta):
 	if result_run_stopwatch:
@@ -56,6 +57,8 @@ func recursiveCheckWinPath(level, board, node, emit):
 			AudioManager.play("res://sounds/you_win.ogg")
 			self.result_string = "Won"
 			self.result_run_stopwatch = false
+			self.timer.stop()
+			self.powerup_timer.stop()
 			emit_signal("won")
 		else:
 			return true
@@ -94,15 +97,25 @@ func _getXYNodePosition(level, board, node):
 func _on_timer_timeout():
 	self.result_string = "Lost"
 	self.result_run_stopwatch = false
+	self.timer.stop()
+	self.powerup_timer.stop()
 	AudioManager.play("res://sounds/you_lose.ogg")
 	emit_signal("lost")
 	
 func _on_powerup_timer_timeout():
-	pass
+	if self.powerup_in_play:
+		# remove it from the board
+		level_node.swapOutPowerup()
+		self.powerup_in_play = false
+	else:
+		# add one to the board
+		level_node.createPowerup()
+		self.powerup_in_play = true
 
 func extraTimeClicked():
 	if self.gametype == "survival":
-		self.timer.start(self.timer.time_left + 30)
+		self.timer.start(self.timer.time_left + 5)
 	# replace the powerup with a blank
 	self.level_node.swapOutPowerup()
+	self.powerup_in_play = false
 

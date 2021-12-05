@@ -5,7 +5,19 @@
 [ext_resource path="res://scripts/entities/special_End.gd" type="Script" id=3]
 
 [node name="End" instance=ExtResource( 1 )]
-texture_normal = ExtResource( 2 )
 
-[node name="Node" type="Node" parent="." index="0"]
+[node name="TextureButton" type="TextureButton" parent="." index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = -32.0
+margin_bottom = -32.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture_normal = ExtResource( 2 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

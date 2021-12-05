@@ -2,8 +2,13 @@ extends Control
 
 func _ready():
 	var board = self.find_node("BoardContainer", true, false)
+	# prevent mouse interaction on the main menu graphic
 	for c in board.get_children():
-		c.set_mouse_filter(2) # ignore mouse events
+		if c.has_method("set_mouse_filter"):
+			c.set_mouse_filter(2) # ignore mouse events
+		for p in c.get_children():
+			if p.has_method("set_mouse_filter"):
+				p.set_mouse_filter(2) # ignore mouse events
 
 func _on_Exit_btn_pressed():
 	# quit the game

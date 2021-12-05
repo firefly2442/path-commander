@@ -10,6 +10,8 @@ func _ready():
 		$MarginContainer/VBoxContainer/Board.remove_child($MarginContainer/VBoxContainer/Board.get_child(0))
 
 	if Game.gametype == "survival":
+		if Game.powerups_enabled:
+			Game.powerup_timer.start()
 		board.columns = self.board_cols
 		
 		$MarginContainer/VBoxContainer/HBoxContainer/TitleLabel.text = "Survival"
@@ -17,8 +19,8 @@ func _ready():
 		# generate random placement of board pieces
 		_generateRandomBoardPieces(board)
 		Game.recursive_checked = []
-		# make sure the path doesn't immediately have a solution with no rotations needed
-		while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false):
+		# make sure the path doesn't immediately have a solution with no rotations needed OR no blank specials
+		while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false) or !board.find_node("Blank", true, false):
 			_generateRandomBoardPieces(board)
 			Game.recursive_checked = []
 	
@@ -161,3 +163,15 @@ func swapOutPowerup():
 				var item = preload("res://scenes/entities/special/special_Blank.tscn").instance()
 				_replaceBoardItemXY(board, row, col, item)
 	
+func createPowerup():
+	var board = self.find_node("GridBoard", true, false)
+	var rng = RandomNumberGenerator.new()
+	rng.randomize() # sets up a random seed
+	while true:
+		# find a random blank spot to replace with the powerup
+		var row: int = rng.randi_range(1, board_rows)
+		var col: int = rng.randi_range(1, board_cols)
+		if "type" in _getBoardItemXY(board, row, col) and _getBoardItemXY(board, row, col).type == "blank":
+			var item = preload("res://scenes/entities/powerups/powerup_ExtraTime.tscn").instance()
+			_replaceBoardItemXY(board, row, col, item)
+			break

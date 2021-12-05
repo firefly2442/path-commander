@@ -1,4 +1,4 @@
-extends TextureButton
+extends Control
 
 var up: bool = false
 var down: bool = false
@@ -14,7 +14,7 @@ func _exit_tree():
 func _on_TextureButton_pressed():
 	AudioManager.play("res://sounds/click1.ogg")
 	
-	self.set_rotation_degrees(self.get_rotation_degrees() + 90)
+	self.get_child(0).set_rotation_degrees(self.get_child(0).get_rotation_degrees() + 90)
 	
 	var new_up: bool = false
 	var new_down: bool = false

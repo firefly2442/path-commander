@@ -45,7 +45,7 @@ text = "Countdown"
 margin_left = 1578.0
 margin_right = 1880.0
 margin_bottom = 86.0
-max_value = 300.0
+max_value = 400.0
 editable = false
 
 [node name="Board" type="Control" parent="MarginContainer/VBoxContainer"]

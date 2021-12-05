@@ -1,5 +1,5 @@
-extends Node
+extends TextureButton
 
 func _ready():
-	pass
+	var _c = self.connect("pressed", self.get_parent(), "_on_TextureButton_pressed") 
 
