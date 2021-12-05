@@ -39,8 +39,9 @@ can use `get_tree().get_root().print_stray_nodes()` to debug and find them.  If 
 discarding it without `add_child()` or if the code is using `remove_child()` without `queue_free()` these are cases that
 would create stray nodes.
 * The `.ogg` sound files needed to be re-imported with loop turned off to prevent them from continuously playing and looping.
-* `containers` handle the rotation and other properties of the children.  Therefore, I needed to parent the clickable `TextureButtons`
-to a `Control` node to prevent them from being reset.
+* `Containers` handle the rotation and other properties of the children.  Therefore, I needed to parent the clickable `TextureButtons`
+to a `Control` node to prevent them from being reset.  I used `min size` on the parent `Control` to ensure appropriate sizing
+and automatic layout occured otherwise everything was jammed together.
 
 ## References and Tutorials
 
