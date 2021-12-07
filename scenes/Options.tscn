@@ -58,6 +58,73 @@ margin_bottom = 338.0
 pressed = true
 text = "Vsync"
 
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 342.0
+margin_right = 1880.0
+margin_bottom = 346.0
+
+[node name="BackgroundMusicLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 350.0
+margin_right = 1880.0
+margin_bottom = 426.0
+text = "Background Music Volume"
+
+[node name="BackgroundSoundHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 430.0
+margin_right = 1880.0
+margin_bottom = 506.0
+
+[node name="OffLabel" type="Label" parent="MarginContainer/VBoxContainer/BackgroundSoundHBoxContainer"]
+margin_right = 138.0
+margin_bottom = 76.0
+text = "Off"
+
+[node name="BackgroundVolumeHSlider" type="HSlider" parent="MarginContainer/VBoxContainer/BackgroundSoundHBoxContainer"]
+margin_left = 142.0
+margin_right = 1711.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+min_value = -50.0
+max_value = 0.0
+step = 5.0
+
+[node name="HighLabel" type="Label" parent="MarginContainer/VBoxContainer/BackgroundSoundHBoxContainer"]
+margin_left = 1715.0
+margin_right = 1880.0
+margin_bottom = 76.0
+text = "High"
+
+[node name="EffectsVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 510.0
+margin_right = 1880.0
+margin_bottom = 586.0
+text = "Sound Effects Volume"
+
+[node name="EffectsHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 590.0
+margin_right = 1880.0
+margin_bottom = 666.0
+
+[node name="OffEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer/EffectsHBoxContainer"]
+margin_right = 138.0
+margin_bottom = 76.0
+text = "Off"
+
+[node name="EffectsVolumeHSlider" type="HSlider" parent="MarginContainer/VBoxContainer/EffectsHBoxContainer"]
+margin_left = 142.0
+margin_right = 1711.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+min_value = -50.0
+max_value = 0.0
+step = 5.0
+
+[node name="HighEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer/EffectsHBoxContainer"]
+margin_left = 1715.0
+margin_right = 1880.0
+margin_bottom = 76.0
+text = "High"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 958.0
 margin_right = 1880.0

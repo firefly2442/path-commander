@@ -17,6 +17,11 @@ func _ready():
 		var values := res_str.split_floats("x")
 		if OS.get_window_size() == Vector2(values[0], values[1]):
 			resolution.selected = res
+	
+	var backgroundvol = self.find_node("BackgroundVolumeHSlider", true, false)
+	var effectsvol = self.find_node("EffectsVolumeHSlider", true, false)
+	backgroundvol.value = AudioManager.backgroundvolume
+	effectsvol.value = AudioManager.effectsvolume
 
 func _on_Back_btn_pressed():
 	assert(get_tree().change_scene("res://scenes/MainMenu.tscn") == OK, "Error swapping scene")
@@ -33,11 +38,17 @@ func _on_Save_btn_pressed():
 	var vsync = self.find_node("VsyncCheckBox", true, false)
 	self._settings.vsync = vsync.pressed
 	
+	var backgroundvol = self.find_node("BackgroundVolumeHSlider", true, false)
+	var effectsvol = self.find_node("EffectsVolumeHSlider", true, false)
+	AudioManager.backgroundvolume = backgroundvol.value
+	AudioManager.effectsvolume = effectsvol.value
+	
 	# apply the settings
 	# https://www.gdquest.com/tutorial/godot/2d/settings-demo/
 	OS.window_fullscreen = self._settings.fullscreen
 	OS.set_window_size(self._settings.resolution)
 	OS.vsync_enabled = self._settings.vsync
+	
 
 func _exit_tree():
 	self.queue_free()

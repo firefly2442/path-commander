@@ -11,7 +11,7 @@ func _ready():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize() # sets up a random seed
 		var screenSize = get_viewport().get_visible_rect().size
-		for i in range(0,4):
+		for _i in range(0,4):
 			var particles = preload("res://scenes/instances/Fireworks_Particles.tscn").instance()
 			particles.position = Vector2(rng.randi_range(screenSize.x*.25, screenSize.x*.75), rng.randi_range(screenSize.y*.25, screenSize.y*.75))
 			get_tree().get_root().add_child(particles)
