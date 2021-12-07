@@ -64,8 +64,10 @@ Thanks To:
 
 [node name="Back_btn" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_top = 958.0
-margin_right = 1880.0
+margin_right = 198.0
 margin_bottom = 1040.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "Back"
 
 [connection signal="meta_clicked" from="MarginContainer/VBoxContainer/CreditsRichTextLabel" to="." method="_on_CreditsRichTextLabel_meta_clicked"]

@@ -175,3 +175,14 @@ func createPowerup():
 			var item = preload("res://scenes/entities/powerups/powerup_ExtraTime.tscn").instance()
 			_replaceBoardItemXY(board, row, col, item)
 			break
+
+
+func _on_GiveUp_btn_pressed():
+	Game.result_run_stopwatch = false
+	Game.timer.stop()
+	Game.powerup_timer.stop()
+			
+	if Game.gametype == "tutorial":
+		assert(get_tree().change_scene("res://scenes/TutorialSelection.tscn") == OK, "Error swapping scene")
+	elif Game.gametype == "survival":
+		assert(get_tree().change_scene("res://scenes/SurvivalSetup.tscn") == OK, "Error swapping scene")
