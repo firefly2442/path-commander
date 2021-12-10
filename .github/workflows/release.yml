@@ -26,6 +26,7 @@ jobs:
     - name: install wine
       id: wine_install
       run: |
+        sudo apt update
         sudo apt install wine64
         echo ::set-output name=WINE_PATH::$(which wine64)
     - name: export game
