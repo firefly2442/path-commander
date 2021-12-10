@@ -16,13 +16,7 @@ func _ready():
 		
 		$MarginContainer/VBoxContainer/HBoxContainer/TitleLabel.text = "Survival"
 		
-		# generate random placement of board pieces
-		_generateRandomBoardPieces(board)
-		Game.recursive_checked = []
-		# make sure the path doesn't immediately have a solution with no rotations needed OR no blank specials
-		while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false) or !board.find_node("Blank", true, false):
-			_generateRandomBoardPieces(board)
-			Game.recursive_checked = []
+		setupBoard(board)
 	
 	Game.resetResults()
 	var _c = Game.connect("won", self, "_on_win")
@@ -186,3 +180,12 @@ func _on_GiveUp_btn_pressed():
 		assert(get_tree().change_scene("res://scenes/TutorialSelection.tscn") == OK, "Error swapping scene")
 	elif Game.gametype == "survival":
 		assert(get_tree().change_scene("res://scenes/SurvivalSetup.tscn") == OK, "Error swapping scene")
+
+func setupBoard(board):
+	# generate random placement of board pieces
+	_generateRandomBoardPieces(board)
+	Game.recursive_checked = []
+	# make sure the path doesn't immediately have a solution with no rotations needed OR no blank specials
+	while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false) or !board.find_node("Blank", true, false):
+		_generateRandomBoardPieces(board)
+		Game.recursive_checked = []

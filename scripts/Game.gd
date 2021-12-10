@@ -3,12 +3,14 @@ extends Node
 var level_node
 var gametype: String = ""
 var recursive_checked: Array = []
+var infinite_mode: bool = false
 
 var result_string: String = ""
 # counts up as a stopwatch to store how long a level took
 var result_run_stopwatch: bool = false
 var result_stopwatch: float = 0
 var result_num_clicks: int = 0
+var result_puzzles_completed: int = 0
 
 var timer: Timer = Timer.new()
 
@@ -18,6 +20,8 @@ var powerup_timer: Timer = Timer.new()
 
 signal won
 signal lost
+
+var _reset_board_mutex: bool = false
 
 func _ready():
 	self.add_child(self.timer)
@@ -38,6 +42,7 @@ func resetResults():
 	self.result_string = ""
 	self.result_stopwatch = 0
 	self.result_num_clicks = 0
+	self.result_puzzles_completed = 0
 
 func checkMouseEvent():
 	# increment click event
@@ -48,18 +53,29 @@ func checkMouseEvent():
 	var start = board.find_node("Start", true, false)
 	self.recursive_checked = []
 	recursiveCheckWinPath(level_node, board, start, true)
+	
+	if _reset_board_mutex:
+		for c in board.get_children():
+			board.remove_child(c)
+		Game.level_node.setupBoard(board)
+		_reset_board_mutex = false
 
 
 func recursiveCheckWinPath(level, board, node, emit):
 	self.recursive_checked.append(node)
 	if node.name == "End":
 		if emit:
-			AudioManager.play("res://sounds/you_win.ogg")
-			self.result_string = "Won"
-			self.result_run_stopwatch = false
-			self.timer.stop()
-			self.powerup_timer.stop()
-			emit_signal("won")
+			self.result_puzzles_completed += 1
+			if self.infinite_mode:
+				# reset board later after recursion finishes
+				_reset_board_mutex = true
+			else:
+				AudioManager.play("res://sounds/you_win.ogg")
+				self.result_string = "Won"
+				self.result_run_stopwatch = false
+				self.timer.stop()
+				self.powerup_timer.stop()
+				emit_signal("won")
 		else:
 			return true
 	
@@ -95,13 +111,19 @@ func _getXYNodePosition(level, board, node):
 			row = row + 1
 
 func _on_timer_timeout():
-	self.result_string = "Lost"
 	self.result_run_stopwatch = false
 	self.timer.stop()
 	self.powerup_timer.stop()
-	AudioManager.play("res://sounds/you_lose.ogg")
-	emit_signal("lost")
 	
+	if self.infinite_mode:
+		self.result_string = "Won"
+		AudioManager.play("res://sounds/you_win.ogg")
+		emit_signal("won")
+	else:
+		self.result_string = "Lost"
+		AudioManager.play("res://sounds/you_lose.ogg")
+		emit_signal("lost")
+
 func _on_powerup_timer_timeout():
 	if self.powerup_in_play:
 		# remove it from the board

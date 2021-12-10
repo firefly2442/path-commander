@@ -11,6 +11,7 @@ func _on_Start_btn_pressed():
 	Game.level_node.board_cols = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ColsSpinBox.value
 	Game.timer.wait_time = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/TimerSpinBox.value
 	Game.powerups_enabled = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/PowerupsCheckBox.pressed
+	Game.infinite_mode = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4/InfiniteModeCheckBox.pressed
 	
 	get_tree().get_root().add_child(Game.level_node)
 	get_tree().set_current_scene(Game.level_node)
@@ -33,4 +34,16 @@ func _on_PowerupHelpTextureRect_mouse_entered():
 
 
 func _on_PowerupHelpTextureRect_mouse_exited():
+	get_tree().get_root().remove_child(get_tree().get_root().find_node("PopupHelp", true, false))
+
+
+func _on_InfiniteModeHelpTextureRect_mouse_entered():
+	var c = preload("res://scenes/instances/Popup_Help.tscn").instance()
+	c.titletext = "Infinite Mode"
+	c.helptext = "In infinite mode, you play and complete as many paths as you can before the timer runs out."
+	c.rect_position = get_viewport().get_mouse_position()
+	get_tree().get_root().add_child(c)
+
+
+func _on_InfiniteModeHelpTextureRect_mouse_exited():
 	get_tree().get_root().remove_child(get_tree().get_root().find_node("PopupHelp", true, false))

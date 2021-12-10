@@ -6,6 +6,7 @@ func _ready():
 	# https://docs.godotengine.org/en/3.4/getting_started/scripting/gdscript/gdscript_format_string.html
 	$MarginContainer/HBoxContainer/VBoxContainer/StopwatchLabel.text = "%s %.2f seconds" % [$MarginContainer/HBoxContainer/VBoxContainer/StopwatchLabel.text, Game.result_stopwatch]
 	$MarginContainer/HBoxContainer/VBoxContainer/NumClicksLabel.text = "%d clicks" % [Game.result_num_clicks]
+	$MarginContainer/HBoxContainer/VBoxContainer/PuzzlesCompletedLabel.text = "%d %s" % [Game.result_puzzles_completed, $MarginContainer/HBoxContainer/VBoxContainer/PuzzlesCompletedLabel.text]
 	
 	if Game.result_string == "Won":
 		var rng = RandomNumberGenerator.new()
