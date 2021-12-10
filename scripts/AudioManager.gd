@@ -28,7 +28,7 @@ func _ready():
 	# setup the background music
 	# imported to "loop" when finished
 	add_child(background_music)
-	background_music.stream = preload("res://sounds/Flowing_Rocks.ogg")
+	background_music.stream = load("res://sounds/Flowing_Rocks.ogg")
 	background_music.bus = "background"
 	background_music.play()
 
