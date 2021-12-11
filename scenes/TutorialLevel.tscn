@@ -32,7 +32,7 @@ func _exit_tree():
 	self.queue_free()
 
 func _on_win():
-	assert(get_tree().change_scene(\"res://scenes/FinishLevel.tscn\") == OK, \"Error swapping scene\")
+	get_tree().change_scene(\"res://scenes/FinishLevel.tscn\")
 	
 func _getBoardItemXY(board, row, col):
 	return board.get_child(_rowColToIndex(row, col))

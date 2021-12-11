@@ -36,10 +36,10 @@ func _exit_tree():
 	self.queue_free()
 
 func _on_win():
-	assert(get_tree().change_scene("res://scenes/FinishLevel.tscn") == OK, "Error swapping scene")
+	get_tree().change_scene("res://scenes/FinishLevel.tscn")
 
 func _on_loss():
-	assert(get_tree().change_scene("res://scenes/FinishLevel.tscn") == OK, "Error swapping scene")
+	get_tree().change_scene("res://scenes/FinishLevel.tscn")
 
 func _on_Node_set_tutorial_level(level):
 	Game.gametype = "tutorial"
@@ -177,9 +177,9 @@ func _on_GiveUp_btn_pressed():
 	Game.powerup_timer.stop()
 			
 	if Game.gametype == "tutorial":
-		assert(get_tree().change_scene("res://scenes/TutorialSelection.tscn") == OK, "Error swapping scene")
+		get_tree().change_scene("res://scenes/TutorialSelection.tscn")
 	elif Game.gametype == "survival":
-		assert(get_tree().change_scene("res://scenes/SurvivalSetup.tscn") == OK, "Error swapping scene")
+		get_tree().change_scene("res://scenes/SurvivalSetup.tscn")
 
 func setupBoard(board):
 	# generate random placement of board pieces

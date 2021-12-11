@@ -15,16 +15,16 @@ func _on_Exit_btn_pressed():
 	get_tree().quit()
 
 func _on_Credits_btn_pressed():
-	assert(get_tree().change_scene("res://scenes/Credits.tscn") == OK, "Error swapping scene")
+	get_tree().change_scene("res://scenes/Credits.tscn")
 
 func _on_Options_btn_pressed():
-	assert(get_tree().change_scene("res://scenes/Options.tscn") == OK, "Error swapping scene")
+	get_tree().change_scene("res://scenes/Options.tscn")
 
 func _on_Survival_btn_pressed():
-	assert(get_tree().change_scene("res://scenes/SurvivalSetup.tscn") == OK, "Error swapping scene")
+	get_tree().change_scene("res://scenes/SurvivalSetup.tscn")
 
 func _on_Tutorial_btn_pressed():
-	assert(get_tree().change_scene("res://scenes/TutorialSelection.tscn") == OK, "Error swapping scene")
+	get_tree().change_scene("res://scenes/TutorialSelection.tscn")
 
 func _exit_tree():
 	self.queue_free()

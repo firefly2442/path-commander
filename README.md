@@ -42,6 +42,7 @@ would create stray nodes.
 * `Containers` handle the rotation and other properties of the children.  Therefore, I needed to parent the clickable `TextureButtons`
 to a `Control` node to prevent them from being reset.  I used `min size` on the parent `Control` to ensure appropriate sizing
 and automatic layout occured otherwise everything was jammed together.
+* `assert()` calls aren't included as part of `release` builds so don't use them to check for and run `change_scene`.
 
 ## References and Tutorials
 
