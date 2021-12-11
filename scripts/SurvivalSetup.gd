@@ -19,7 +19,7 @@ func _on_Start_btn_pressed():
 
 
 func _on_Back_btn_pressed():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	var _c = get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _exit_tree():
 	self.queue_free()

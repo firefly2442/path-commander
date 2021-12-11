@@ -21,9 +21,9 @@ func _ready():
 
 func _on_Continue_btn_pressed():
 	if Game.gametype == "tutorial":
-		get_tree().change_scene("res://scenes/TutorialSelection.tscn")
+		var _c = get_tree().change_scene("res://scenes/TutorialSelection.tscn")
 	elif Game.gametype == "survival":
-		get_tree().change_scene("res://scenes/SurvivalSetup.tscn")
+		var _c = get_tree().change_scene("res://scenes/SurvivalSetup.tscn")
 
 func _exit_tree():
 	self.queue_free()

@@ -39,7 +39,7 @@ func _swapTutorial():
 	Game.level_node.board_rows = board.get_child_count() / board.columns
 
 func _on_Back_btn_pressed():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	var _c = get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _exit_tree():
 	self.queue_free()

@@ -24,7 +24,7 @@ func _ready():
 	effectsvol.value = AudioManager.effectsvolume
 
 func _on_Back_btn_pressed():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	var _c = get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _on_Save_btn_pressed():
 	var resolution = self.find_node("ResolutionOptionButton", true, false)
