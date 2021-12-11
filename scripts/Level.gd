@@ -41,7 +41,7 @@ func _on_win():
 func _on_loss():
 	var _c = get_tree().change_scene("res://scenes/FinishLevel.tscn")
 
-func _on_Node_set_tutorial_level(level):
+func set_tutorial_level(level):
 	Game.gametype = "tutorial"
 	var scene = load("res://scenes/tutorials/tutorial_level_" + str(level) + ".tscn")
 	self.find_node("Board").add_child(scene.instance())

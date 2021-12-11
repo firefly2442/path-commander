@@ -1,31 +1,27 @@
 extends Node
 
-signal set_tutorial_level(level)
-
 func _ready():
 	Game.level_node = preload("res://scenes/Level.tscn").instance()
 	Game.gametype = "tutorial"
-	var _c = self.connect("set_tutorial_level", Game.level_node, "_on_Node_set_tutorial_level")
-
 
 func _on_Tutorial_1_btn_pressed():
-	emit_signal("set_tutorial_level", 1)
+	Game.level_node.set_tutorial_level(1)
 	_swapTutorial()
 
 func _on_Tutorial_2_btn_pressed():
-	emit_signal("set_tutorial_level", 2)
+	Game.level_node.set_tutorial_level(2)
 	_swapTutorial()
 
 func _on_Tutorial_3_btn_pressed():
-	emit_signal("set_tutorial_level", 3)
+	Game.level_node.set_tutorial_level(3)
 	_swapTutorial()
 
 func _on_Tutorial_4_btn_pressed():
-	emit_signal("set_tutorial_level", 4)
+	Game.level_node.set_tutorial_level(4)
 	_swapTutorial()
 
 func _on_Tutorial_5_btn_pressed():
-	emit_signal("set_tutorial_level", 5)
+	Game.level_node.set_tutorial_level(5)
 	_swapTutorial()
 
 func _swapTutorial():
