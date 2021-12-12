@@ -91,295 +91,295 @@ columns = 6
 [node name="Blank" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 64.0
 mouse_filter = 0
 
 [node name="Bottom_Left" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
-margin_left = 4.0
+margin_left = 68.0
 margin_top = 0.0
-margin_right = 4.0
-margin_bottom = 0.0
+margin_right = 132.0
+margin_bottom = 64.0
 mouse_filter = 0
 
 [node name="Left_Right" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 8.0
+margin_left = 136.0
 margin_top = 0.0
-margin_right = 8.0
-margin_bottom = 0.0
+margin_right = 200.0
+margin_bottom = 64.0
 mouse_filter = 0
 
 [node name="Up_Down" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 5 )]
-margin_left = 12.0
+margin_left = 204.0
 margin_top = 0.0
-margin_right = 12.0
-margin_bottom = 0.0
+margin_right = 268.0
+margin_bottom = 64.0
 mouse_filter = 0
 
 [node name="Bottom_Right" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 16.0
+margin_left = 272.0
 margin_top = 0.0
-margin_right = 16.0
-margin_bottom = 0.0
+margin_right = 336.0
+margin_bottom = 64.0
 mouse_filter = 0
 
 [node name="Up_Down2" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 5 )]
-margin_left = 20.0
+margin_left = 340.0
 margin_top = 0.0
-margin_right = 20.0
-margin_bottom = 0.0
+margin_right = 404.0
+margin_bottom = 64.0
 mouse_filter = 0
 
 [node name="Start" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 9 )]
 margin_left = 0.0
-margin_top = 4.0
-margin_right = 0.0
-margin_bottom = 4.0
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
 mouse_filter = 0
 
 [node name="Up_Down3" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 5 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 4.0
-margin_bottom = 4.0
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
 mouse_filter = 0
 
 [node name="Left_Right2" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 8.0
-margin_top = 4.0
-margin_right = 8.0
-margin_bottom = 4.0
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
 mouse_filter = 0
 
 [node name="Bottom_Left6" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
-margin_left = 12.0
-margin_top = 4.0
-margin_right = 12.0
-margin_bottom = 4.0
+margin_left = 204.0
+margin_top = 68.0
+margin_right = 268.0
+margin_bottom = 132.0
 mouse_filter = 0
 
 [node name="Blank2" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
-margin_left = 16.0
-margin_top = 4.0
-margin_right = 16.0
-margin_bottom = 4.0
+margin_left = 272.0
+margin_top = 68.0
+margin_right = 336.0
+margin_bottom = 132.0
 mouse_filter = 0
 
 [node name="Blank3" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
-margin_left = 20.0
-margin_top = 4.0
-margin_right = 20.0
-margin_bottom = 4.0
+margin_left = 340.0
+margin_top = 68.0
+margin_right = 404.0
+margin_bottom = 132.0
 mouse_filter = 0
 
 [node name="Blank4" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
 margin_left = 0.0
-margin_top = 8.0
-margin_right = 0.0
-margin_bottom = 8.0
+margin_top = 136.0
+margin_right = 64.0
+margin_bottom = 200.0
 mouse_filter = 0
 
 [node name="Bottom_Left7" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
-margin_left = 4.0
-margin_top = 8.0
-margin_right = 4.0
-margin_bottom = 8.0
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
 mouse_filter = 0
 
 [node name="Left_Right4" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 8.0
-margin_bottom = 8.0
+margin_left = 136.0
+margin_top = 136.0
+margin_right = 200.0
+margin_bottom = 200.0
 mouse_filter = 0
 
 [node name="Bottom_Left2" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
-margin_left = 12.0
-margin_top = 8.0
-margin_right = 12.0
-margin_bottom = 8.0
+margin_left = 204.0
+margin_top = 136.0
+margin_right = 268.0
+margin_bottom = 200.0
 mouse_filter = 0
 
 [node name="Left_Right6" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 16.0
-margin_bottom = 8.0
+margin_left = 272.0
+margin_top = 136.0
+margin_right = 336.0
+margin_bottom = 200.0
 mouse_filter = 0
 
 [node name="End" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 3 )]
-margin_left = 20.0
-margin_top = 8.0
-margin_right = 20.0
-margin_bottom = 8.0
+margin_left = 340.0
+margin_top = 136.0
+margin_right = 404.0
+margin_bottom = 200.0
 mouse_filter = 0
 
 [node name="Bottom_Left3" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
 margin_left = 0.0
-margin_top = 12.0
-margin_right = 0.0
-margin_bottom = 12.0
+margin_top = 204.0
+margin_right = 64.0
+margin_bottom = 268.0
 mouse_filter = 0
 
 [node name="Bottom_Right2" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 4.0
-margin_top = 12.0
-margin_right = 4.0
-margin_bottom = 12.0
+margin_left = 68.0
+margin_top = 204.0
+margin_right = 132.0
+margin_bottom = 268.0
 mouse_filter = 0
 
 [node name="Left_Right7" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 8.0
-margin_top = 12.0
-margin_right = 8.0
-margin_bottom = 12.0
+margin_left = 136.0
+margin_top = 204.0
+margin_right = 200.0
+margin_bottom = 268.0
 mouse_filter = 0
 
 [node name="Left_Right8" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 12.0
-margin_top = 12.0
-margin_right = 12.0
-margin_bottom = 12.0
+margin_left = 204.0
+margin_top = 204.0
+margin_right = 268.0
+margin_bottom = 268.0
 mouse_filter = 0
 
 [node name="Bottom_Right3" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 16.0
-margin_top = 12.0
-margin_right = 16.0
-margin_bottom = 12.0
+margin_left = 272.0
+margin_top = 204.0
+margin_right = 336.0
+margin_bottom = 268.0
 mouse_filter = 0
 
 [node name="Bottom_Right4" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 20.0
-margin_top = 12.0
-margin_right = 20.0
-margin_bottom = 12.0
+margin_left = 340.0
+margin_top = 204.0
+margin_right = 404.0
+margin_bottom = 268.0
 mouse_filter = 0
 
 [node name="Blank5" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
 margin_left = 0.0
-margin_top = 16.0
-margin_right = 0.0
-margin_bottom = 16.0
+margin_top = 272.0
+margin_right = 64.0
+margin_bottom = 336.0
 mouse_filter = 0
 
 [node name="Blank6" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
-margin_left = 4.0
-margin_top = 16.0
-margin_right = 4.0
-margin_bottom = 16.0
+margin_left = 68.0
+margin_top = 272.0
+margin_right = 132.0
+margin_bottom = 336.0
 mouse_filter = 0
 
 [node name="Up_Down4" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 5 )]
-margin_left = 8.0
-margin_top = 16.0
-margin_right = 8.0
-margin_bottom = 16.0
+margin_left = 136.0
+margin_top = 272.0
+margin_right = 200.0
+margin_bottom = 336.0
 mouse_filter = 0
 
 [node name="Blank7" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
-margin_left = 12.0
-margin_top = 16.0
-margin_right = 12.0
-margin_bottom = 16.0
+margin_left = 204.0
+margin_top = 272.0
+margin_right = 268.0
+margin_bottom = 336.0
 mouse_filter = 0
 
 [node name="Up_Down5" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 5 )]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
+margin_left = 272.0
+margin_top = 272.0
+margin_right = 336.0
+margin_bottom = 336.0
 mouse_filter = 0
 
 [node name="Bottom_Right5" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 20.0
-margin_top = 16.0
-margin_right = 20.0
-margin_bottom = 16.0
+margin_left = 340.0
+margin_top = 272.0
+margin_right = 404.0
+margin_bottom = 336.0
 mouse_filter = 0
 
 [node name="Bottom_Left4" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
 margin_left = 0.0
-margin_top = 20.0
-margin_right = 0.0
-margin_bottom = 20.0
+margin_top = 340.0
+margin_right = 64.0
+margin_bottom = 404.0
 mouse_filter = 0
 
 [node name="Bottom_Right6" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 4.0
-margin_top = 20.0
-margin_right = 4.0
-margin_bottom = 20.0
+margin_left = 68.0
+margin_top = 340.0
+margin_right = 132.0
+margin_bottom = 404.0
 mouse_filter = 0
 
 [node name="Blank8" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
-margin_left = 8.0
-margin_top = 20.0
-margin_right = 8.0
-margin_bottom = 20.0
+margin_left = 136.0
+margin_top = 340.0
+margin_right = 200.0
+margin_bottom = 404.0
 mouse_filter = 0
 
 [node name="Left_Right9" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 12.0
-margin_top = 20.0
-margin_right = 12.0
-margin_bottom = 20.0
+margin_left = 204.0
+margin_top = 340.0
+margin_right = 268.0
+margin_bottom = 404.0
 mouse_filter = 0
 
 [node name="Bottom_Right7" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 16.0
-margin_top = 20.0
-margin_right = 16.0
-margin_bottom = 20.0
+margin_left = 272.0
+margin_top = 340.0
+margin_right = 336.0
+margin_bottom = 404.0
 mouse_filter = 0
 
 [node name="Bottom_Right8" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = 340.0
+margin_top = 340.0
+margin_right = 404.0
+margin_bottom = 404.0
 mouse_filter = 0
 
 [node name="Bottom_Right9" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 24.0
-margin_right = 0.0
-margin_bottom = 24.0
+margin_top = 408.0
+margin_right = 64.0
+margin_bottom = 472.0
 mouse_filter = 0
 
 [node name="Left_Right10" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 4.0
-margin_top = 24.0
-margin_right = 4.0
-margin_bottom = 24.0
+margin_left = 68.0
+margin_top = 408.0
+margin_right = 132.0
+margin_bottom = 472.0
 mouse_filter = 0
 
 [node name="Blank9" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 8 )]
-margin_left = 8.0
-margin_top = 24.0
-margin_right = 8.0
-margin_bottom = 24.0
+margin_left = 136.0
+margin_top = 408.0
+margin_right = 200.0
+margin_bottom = 472.0
 mouse_filter = 0
 
 [node name="Bottom_Right10" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 4 )]
-margin_left = 12.0
-margin_top = 24.0
-margin_right = 12.0
-margin_bottom = 24.0
+margin_left = 204.0
+margin_top = 408.0
+margin_right = 268.0
+margin_bottom = 472.0
 mouse_filter = 0
 
 [node name="Left_Right11" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 6 )]
-margin_left = 16.0
-margin_top = 24.0
-margin_right = 16.0
-margin_bottom = 24.0
+margin_left = 272.0
+margin_top = 408.0
+margin_right = 336.0
+margin_bottom = 472.0
 mouse_filter = 0
 
 [node name="Bottom_Left5" parent="MarginContainer/HBoxContainer/BoardContainer" instance=ExtResource( 7 )]
-margin_left = 20.0
-margin_top = 24.0
-margin_right = 20.0
-margin_bottom = 24.0
+margin_left = 340.0
+margin_top = 408.0
+margin_right = 404.0
+margin_bottom = 472.0
 mouse_filter = 0
 
 [node name="Timer" type="Timer" parent="."]
