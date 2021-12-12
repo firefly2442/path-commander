@@ -38,5 +38,6 @@ func _on_Timer_timeout():
 	var piece: int = rng.randi_range(1, 36)
 	board.get_child(piece).set_rotation_degrees(board.get_child(piece).get_rotation_degrees() + 90)
 	
-	# print stray nodes for debugging purposes
-	get_tree().get_root().print_stray_nodes()
+	if OS.is_debug_build():
+		# print stray nodes for debugging purposes
+		get_tree().get_root().print_stray_nodes()

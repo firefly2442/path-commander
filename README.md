@@ -43,6 +43,7 @@ would create stray nodes.
 to a `Control` node to prevent them from being reset.  I used `min size` on the parent `Control` to ensure appropriate sizing
 and automatic layout occured otherwise everything was jammed together.
 * `assert()` calls aren't included as part of `release` builds so don't use them to check for and run `change_scene`.
+* Use `OS.is_debug_build()` to check for if we're running in `debug` or `release` mode.
 
 ## References and Tutorials
 
