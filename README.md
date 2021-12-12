@@ -21,6 +21,14 @@ Use a local copy of Godot and open the `project.godot` file.
 
 Releases are automatically built via git tags using semantic versioning, e.g. `v1.0.0`.
 
+## Screenshots
+
+![GIF](./screenshots/path_commander.gif)
+
+![Survival](./screenshots/survival.png)
+
+![Won](./screenshots/won.png)
+
 ## Licenses
 
 * Images/Fonts/Sounds from Kenney are under Creative Commons Zero (CC0)
