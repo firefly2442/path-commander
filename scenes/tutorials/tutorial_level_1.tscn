@@ -110,8 +110,9 @@ mouse_filter = 0
 [node name="InstructionsLabel" type="Label" parent="VBoxContainer"]
 margin_top = 136.0
 margin_right = 980.0
-margin_bottom = 241.0
+margin_bottom = 277.0
 text = "Your objective is to make a connecting yellow path between the green markers.
 Any of the yellow paths can be clicked and rotated.
-Blue blocks cannot be rotated."
+Blue blocks cannot be rotated.
+Solve the puzzle to continue."
 align = 1
