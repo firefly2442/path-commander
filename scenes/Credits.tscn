@@ -41,16 +41,16 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = SubResource("1")
 bbcode_enabled = true
-text = "Design and Programming: firefly2442
+text = "Design and Programming: [color=aqua][url=https://github.com/firefly2442/]firefly2442[/url][/color]
 
-Art and Sounds:  Kenney
+Art and Sounds:  [color=aqua][url=https://kenney.nl/]Kenney[/url][/color]
 
-Game Engine:  Godot
+Game Engine:  [color=aqua][url=https://godotengine.org/]Godot[/url][/color]
 
 Thanks To:
-- Godot Discord Channel
-- LevelOneTechs
-- All the awesome developers working on Godot"
+Godot Discord Channel
+[color=aqua][url=https://level1techs.com/]LevelOneTechs[/url][/color]
+All the awesome developers working on Godot"
 
 [node name="Back_btn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
