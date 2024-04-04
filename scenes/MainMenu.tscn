@@ -59,7 +59,7 @@ text = "Exit"
 layout_mode = 2
 size_flags_vertical = 14
 theme = ExtResource("10")
-text = "v0.0.8"
+text = "v0.0.9"
 
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
