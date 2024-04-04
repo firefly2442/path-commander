@@ -37,7 +37,7 @@ Releases are automatically built via git tags using semantic versioning, e.g. `v
 
 ## Development Notes
 
-* Developed and tested with Godot v3.4.1
+* Developed and tested with Godot v4.2.1
 * Use `autoload` to pre-load singletons.  Try *not* to use singletons if possible.
 * Use the debugger and the `misc` tab to debug mouse click events.  This can show where in the node hierarchy it's getting stuck.
 * If something isn't clickable, traverse up the node tree and set the Mouse -> Filter property to `Ignore`.
