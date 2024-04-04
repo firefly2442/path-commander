@@ -4,7 +4,7 @@ var board_rows: int = 0
 var board_cols: int = 0
 
 func _ready():
-	var board = self.find_node("GridBoard", true, false)
+	var board = self.find_child("GridBoard", true, false)
 	
 	if Game.gametype == "tutorial":
 		$MarginContainer/VBoxContainer/Board.remove_child($MarginContainer/VBoxContainer/Board.get_child(0))
@@ -19,15 +19,15 @@ func _ready():
 		setupBoard(board)
 	
 	Game.resetResults()
-	var _c = Game.connect("won", self, "_on_win")
-	_c = Game.connect("lost", self, "_on_loss")
+	var _c = Game.connect("won", Callable(self, "_on_win"))
+	_c = Game.connect("lost", Callable(self, "_on_loss"))
 	Game.result_run_stopwatch = true
 	
 	if Game.gametype == "survival":
 		Game.timer.start()
 	
 func _process(_delta):
-	var spinbox = self.find_node("CountdownSpinBox", true, false)
+	var spinbox = self.find_child("CountdownSpinBox", true, false)
 	spinbox.value = Game.timer.time_left
 
 func _exit_tree():
@@ -36,16 +36,16 @@ func _exit_tree():
 	self.queue_free()
 
 func _on_win():
-	var _c = get_tree().change_scene("res://scenes/FinishLevel.tscn")
+	SceneSwitcher.switch_scene("res://scenes/FinishLevel.tscn")
 
 func _on_loss():
-	var _c = get_tree().change_scene("res://scenes/FinishLevel.tscn")
+	SceneSwitcher.switch_scene("res://scenes/FinishLevel.tscn")
 
 func set_tutorial_level(level):
 	Game.gametype = "tutorial"
 	var scene = load("res://scenes/tutorials/tutorial_level_" + str(level) + ".tscn")
-	self.find_node("Board").add_child(scene.instance())
-	self.find_node("TitleLabel").set_text("Tutorial " + str(level))
+	self.find_child("Board").add_child(scene.instantiate())
+	self.find_child("TitleLabel").set_text("Tutorial " + str(level))
 
 func _generateRandomBoardPieces(board):
 	var rng = RandomNumberGenerator.new()
@@ -63,23 +63,23 @@ func _generateRandomBoardPieces(board):
 			# generate a random piece
 			var piece_index: int = rng.randi_range(1, 5) #inclusive
 			if piece_index == 1:
-				board.add_child(preload("res://scenes/entities/paths/path_Bottom_Left.tscn").instance())
+				board.add_child(preload("res://scenes/entities/paths/path_Bottom_Left.tscn").instantiate())
 			elif piece_index == 2:
-				board.add_child(preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instance())
+				board.add_child(preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instantiate())
 			elif piece_index == 3:
-				board.add_child(preload("res://scenes/entities/paths/path_Left_Right.tscn").instance())
+				board.add_child(preload("res://scenes/entities/paths/path_Left_Right.tscn").instantiate())
 			elif piece_index == 4:
-				board.add_child(preload("res://scenes/entities/paths/path_Up_Down.tscn").instance())
+				board.add_child(preload("res://scenes/entities/paths/path_Up_Down.tscn").instantiate())
 			elif piece_index == 5:
-				board.add_child(preload("res://scenes/entities/special/special_Blank.tscn").instance())
+				board.add_child(preload("res://scenes/entities/special/special_Blank.tscn").instantiate())
 	
 	# pick one space in the first column for the start
 	var start_row_ins: int = rng.randi_range(1, self.board_rows)
-	_replaceBoardItemXY(board, start_row_ins, 1, preload("res://scenes/entities/special/special_Start.tscn").instance())
+	_replaceBoardItemXY(board, start_row_ins, 1, preload("res://scenes/entities/special/special_Start.tscn").instantiate())
 	
 	# pick one space in the last column for the end
 	var end_row_ins: int = rng.randi_range(1, self.board_rows)
-	_replaceBoardItemXY(board, end_row_ins, self.board_cols, preload("res://scenes/entities/special/special_End.tscn").instance())
+	_replaceBoardItemXY(board, end_row_ins, self.board_cols, preload("res://scenes/entities/special/special_End.tscn").instantiate())
 	
 	var found_path: bool = false
 	var winning_path: Array
@@ -112,17 +112,17 @@ func _generateRandomBoardPieces(board):
 		if (_getBoardItemXY(board, winning_path[p][0], winning_path[p][1]).name != "Start" and _getBoardItemXY(board, winning_path[p][0], winning_path[p][1]).name != "End"):
 			# we add the appropriate piece to link up with the previous piece
 			if (winning_path[p-1][0] == winning_path[p][0] and winning_path[p][0] == winning_path[p+1][0]):
-				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Left_Right.tscn").instance())
+				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Left_Right.tscn").instantiate())
 			if (winning_path[p-1][1] == winning_path[p][1] and winning_path[p][1] == winning_path[p+1][1]):
-				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Up_Down.tscn").instance())
+				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Up_Down.tscn").instantiate())
 			if (winning_path[p-1][0] == winning_path[p][0] and winning_path[p][1] == winning_path[p+1][1]) or (winning_path[p-1][1] == winning_path[p][1] and winning_path[p][0] == winning_path[p+1][0]):
-				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instance())
+				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instantiate())
 			if (winning_path[p-1][1] == winning_path[p][1] and winning_path[p][0] == winning_path[p+1][0]) or (winning_path[p-1][0] == winning_path[p][0] and winning_path[p][1] == winning_path[p+1][1]):
-				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instance())
+				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instantiate())
 			if (winning_path[p-1][0] == winning_path[p][0] and winning_path[p][1] == winning_path[p+1][1]) or (winning_path[p-1][1] == winning_path[p][1] and winning_path[p][0] == winning_path[p+1][0]):
-				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instance())
+				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instantiate())
 			if (winning_path[p-1][1] == winning_path[p][1] and winning_path[p][0] == winning_path[p+1][0]) or (winning_path[p-1][0] == winning_path[p][0] and winning_path[p][1] == winning_path[p+1][1]):
-				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instance())
+				_replaceBoardItemXY(board, winning_path[p][0], winning_path[p][1], preload("res://scenes/entities/paths/path_Bottom_Right.tscn").instantiate())
 
 
 
@@ -150,15 +150,15 @@ func _rowColToIndex(row, col):
 	return (((row-1) * self.board_cols) + col)-1
 
 func swapOutPowerup():
-	var board = self.find_node("GridBoard", true, false)
+	var board = self.find_child("GridBoard", true, false)
 	for row in range(1,board_rows+1):
 		for col in range(1,board_cols+1):
 			if _getBoardItemXY(board, row, col).name == "ExtraTime":
-				var item = preload("res://scenes/entities/special/special_Blank.tscn").instance()
+				var item = preload("res://scenes/entities/special/special_Blank.tscn").instantiate()
 				_replaceBoardItemXY(board, row, col, item)
 	
 func createPowerup():
-	var board = self.find_node("GridBoard", true, false)
+	var board = self.find_child("GridBoard", true, false)
 	var rng = RandomNumberGenerator.new()
 	rng.randomize() # sets up a random seed
 	while true:
@@ -166,7 +166,7 @@ func createPowerup():
 		var row: int = rng.randi_range(1, board_rows)
 		var col: int = rng.randi_range(1, board_cols)
 		if "type" in _getBoardItemXY(board, row, col) and _getBoardItemXY(board, row, col).type == "blank":
-			var item = preload("res://scenes/entities/powerups/powerup_ExtraTime.tscn").instance()
+			var item = preload("res://scenes/entities/powerups/powerup_ExtraTime.tscn").instantiate()
 			_replaceBoardItemXY(board, row, col, item)
 			break
 
@@ -177,15 +177,15 @@ func _on_GiveUp_btn_pressed():
 	Game.powerup_timer.stop()
 			
 	if Game.gametype == "tutorial":
-		var _c = get_tree().change_scene("res://scenes/TutorialSelection.tscn")
+		SceneSwitcher.switch_scene("res://scenes/TutorialSelection.tscn")
 	elif Game.gametype == "survival":
-		var _c = get_tree().change_scene("res://scenes/SurvivalSetup.tscn")
+		SceneSwitcher.switch_scene("res://scenes/SurvivalSetup.tscn")
 
 func setupBoard(board):
 	# generate random placement of board pieces
 	_generateRandomBoardPieces(board)
 	Game.recursive_checked = []
 	# make sure the path doesn't immediately have a solution with no rotations needed OR no blank specials
-	while Game.recursiveCheckWinPath(self, board, board.find_node("Start", true, false), false) or !board.find_node("Blank", true, false):
+	while Game.recursiveCheckWinPath(self, board, board.find_child("Start", true, false), false) or !board.find_child("Blank", true, false):
 		_generateRandomBoardPieces(board)
 		Game.recursive_checked = []

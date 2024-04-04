@@ -1,33 +1,33 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c0ixrg2h3lsxb"]
 
-[ext_resource path="res://fonts/Kenney/KenneyBold.tres" type="DynamicFont" id=1]
-[ext_resource path="res://images/ui/checkbox_checked.png" type="Texture" id=2]
-[ext_resource path="res://images/ui/checkbox_blank.png" type="Texture" id=3]
-[ext_resource path="res://images/ui/blue_sliderDown.png" type="Texture" id=4]
+[ext_resource type="FontFile" path="res://fonts/Kenney/KenneyBold.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://c7wa7gq2k5wrw" path="res://images/ui/checkbox_checked.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://p1v7oaqr06ui" path="res://images/ui/checkbox_blank.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bcdwiq1lur07q" path="res://images/ui/blue_sliderDown.png" id="4"]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id="1"]
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 
 [resource]
-default_font = ExtResource( 1 )
-Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
-Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+default_font = ExtResource("1")
+Button/colors/font_color = Color(0.88, 0.88, 0.88, 1)
+Button/colors/font_color_disabled = Color(0.9, 0.9, 0.9, 0.2)
+Button/colors/font_color_hover = Color(0.94, 0.94, 0.94, 1)
+Button/colors/font_color_pressed = Color(1, 1, 1, 1)
 Button/constants/hseparation = 2
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1")
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = null
 Button/styles/pressed = null
-CheckBox/icons/checked = ExtResource( 2 )
-CheckBox/icons/unchecked = ExtResource( 3 )
-HSlider/icons/grabber = ExtResource( 4 )
-HSlider/icons/grabber_highlight = ExtResource( 4 )
+CheckBox/icons/checked = ExtResource("2")
+CheckBox/icons/unchecked = ExtResource("3")
+HSlider/icons/grabber = ExtResource("4")
+HSlider/icons/grabber_highlight = ExtResource("4")
 HSlider/styles/grabber_area = null
-HSlider/styles/slider = SubResource( 1 )
+HSlider/styles/slider = SubResource("1")
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20

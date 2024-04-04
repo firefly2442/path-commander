@@ -22,7 +22,7 @@ func _ready():
 		var p = AudioStreamPlayer.new()
 		add_child(p)
 		available.append(p)
-		p.connect("finished", self, "_on_stream_finished", [p])
+		p.connect("finished", Callable(self, "_on_stream_finished").bind(p))
 		p.bus = "sfx"
 	
 	# setup the background music
@@ -47,7 +47,7 @@ func _process(_delta):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("sfx"), self.effectsvolume)
 	
 	# Play a queued sound if any players are available.
-	if not queue.empty() and not available.empty():
+	if not queue.is_empty() and not available.is_empty():
 		available[0].stream = load(queue.pop_front())
 		available[0].play()
 		available.pop_front()

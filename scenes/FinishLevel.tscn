@@ -1,73 +1,53 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://d4il5a36d37ar"]
 
-[ext_resource path="res://themes/MainTheme.tres" type="Theme" id=1]
-[ext_resource path="res://scripts/FinishLevel.gd" type="Script" id=2]
+[ext_resource type="Theme" uid="uid://c0ixrg2h3lsxb" path="res://themes/MainTheme.tres" id="1"]
+[ext_resource type="Script" path="res://scripts/FinishLevel.gd" id="2"]
 
 [node name="FinishLevelControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1")
+script = ExtResource("2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 1900.0
-margin_bottom = 1060.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 1506.0
-margin_bottom = 1040.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ResultsLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 1506.0
-margin_bottom = 76.0
+layout_mode = 2
 text = "Results"
 
 [node name="ResultStatusLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 80.0
-margin_right = 1506.0
-margin_bottom = 156.0
+layout_mode = 2
 
 [node name="StopwatchLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 160.0
-margin_right = 1506.0
-margin_bottom = 236.0
+layout_mode = 2
 text = "Stopwatch"
 
 [node name="NumClicksLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 240.0
-margin_right = 1506.0
-margin_bottom = 316.0
+layout_mode = 2
 text = "Number of Clicks"
 
 [node name="PuzzlesCompletedLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 320.0
-margin_right = 1506.0
-margin_bottom = 396.0
+layout_mode = 2
 text = "Puzzles Completed"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 1510.0
-margin_right = 1880.0
-margin_bottom = 1040.0
+layout_mode = 2
 
 [node name="Continue_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 958.0
-margin_right = 370.0
-margin_bottom = 1040.0
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 10
 text = "Continue"

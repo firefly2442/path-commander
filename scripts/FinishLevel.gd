@@ -13,7 +13,7 @@ func _ready():
 		rng.randomize() # sets up a random seed
 		var screenSize = get_viewport().get_visible_rect().size
 		for _i in range(0,4):
-			var particles = preload("res://scenes/instances/Fireworks_Particles.tscn").instance()
+			var particles = preload("res://scenes/instances/Fireworks_Particles.tscn").instantiate()
 			particles.position = Vector2(rng.randi_range(screenSize.x*.25, screenSize.x*.75), rng.randi_range(screenSize.y*.25, screenSize.y*.75))
 			get_tree().get_root().add_child(particles)
 			
@@ -21,9 +21,9 @@ func _ready():
 
 func _on_Continue_btn_pressed():
 	if Game.gametype == "tutorial":
-		var _c = get_tree().change_scene("res://scenes/TutorialSelection.tscn")
+		SceneSwitcher.switch_scene("res://scenes/TutorialSelection.tscn")
 	elif Game.gametype == "survival":
-		var _c = get_tree().change_scene("res://scenes/SurvivalSetup.tscn")
+		SceneSwitcher.switch_scene("res://scenes/SurvivalSetup.tscn")
 
 func _exit_tree():
 	self.queue_free()

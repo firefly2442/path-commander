@@ -26,11 +26,11 @@ var _reset_board_mutex: bool = false
 func _ready():
 	self.add_child(self.timer)
 	self.timer.one_shot = true
-	var _c = self.timer.connect("timeout", self, "_on_timer_timeout") 
+	var _c = self.timer.connect("timeout", Callable(self, "_on_timer_timeout")) 
 	
 	self.add_child(self.powerup_timer)
 	self.powerup_timer.one_shot = false	
-	var _p = self.powerup_timer.connect("timeout", self, "_on_powerup_timer_timeout")
+	var _p = self.powerup_timer.connect("timeout", Callable(self, "_on_powerup_timer_timeout"))
 	self.powerup_timer.start(12)
 	self.powerup_timer.stop()
 
@@ -48,9 +48,9 @@ func checkMouseEvent():
 	# increment click event
 	self.result_num_clicks += 1
 	
-	var board = level_node.find_node("GridBoard", true, false)
+	var board = level_node.find_child("GridBoard", true, false)
 	# check for win
-	var start = board.find_node("Start", true, false)
+	var start = board.find_child("Start", true, false)
 	self.recursive_checked = []
 	recursiveCheckWinPath(level_node, board, start, true)
 	

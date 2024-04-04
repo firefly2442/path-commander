@@ -19,102 +19,102 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridBoard" type="GridContainer" parent="VBoxContainer"]
-margin_left = 101.0
-margin_right = 505.0
-margin_bottom = 132.0
+offset_left = 101.0
+offset_right = 505.0
+offset_bottom = 132.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 columns = 6
 
 [node name="Start" parent="VBoxContainer/GridBoard" instance=ExtResource( 3 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 64.0
-margin_bottom = 64.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
 mouse_filter = 0
 
 [node name="Up_Down" parent="VBoxContainer/GridBoard" instance=ExtResource( 2 )]
-margin_left = 68.0
-margin_top = 0.0
-margin_right = 132.0
-margin_bottom = 64.0
+offset_left = 68.0
+offset_top = 0.0
+offset_right = 132.0
+offset_bottom = 64.0
 mouse_filter = 0
 
 [node name="Bottom_Right" parent="VBoxContainer/GridBoard" instance=ExtResource( 1 )]
-margin_left = 136.0
-margin_top = 0.0
-margin_right = 200.0
-margin_bottom = 64.0
+offset_left = 136.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 64.0
 mouse_filter = 0
 
 [node name="Up_Down2" parent="VBoxContainer/GridBoard" instance=ExtResource( 2 )]
-margin_left = 204.0
-margin_top = 0.0
-margin_right = 268.0
-margin_bottom = 64.0
+offset_left = 204.0
+offset_top = 0.0
+offset_right = 268.0
+offset_bottom = 64.0
 mouse_filter = 0
 
 [node name="Bottom_Right3" parent="VBoxContainer/GridBoard" instance=ExtResource( 1 )]
-margin_left = 272.0
-margin_top = 0.0
-margin_right = 336.0
-margin_bottom = 64.0
+offset_left = 272.0
+offset_top = 0.0
+offset_right = 336.0
+offset_bottom = 64.0
 
 [node name="Bottom_Right2" parent="VBoxContainer/GridBoard" instance=ExtResource( 1 )]
-margin_left = 340.0
-margin_top = 0.0
-margin_right = 404.0
-margin_bottom = 64.0
+offset_left = 340.0
+offset_top = 0.0
+offset_right = 404.0
+offset_bottom = 64.0
 mouse_filter = 0
 
 [node name="Left_Right2" parent="VBoxContainer/GridBoard" instance=ExtResource( 4 )]
-margin_left = 0.0
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
+offset_left = 0.0
+offset_top = 68.0
+offset_right = 64.0
+offset_bottom = 132.0
 
 [node name="Up_Down3" parent="VBoxContainer/GridBoard" instance=ExtResource( 2 )]
-margin_left = 68.0
-margin_top = 68.0
-margin_right = 132.0
-margin_bottom = 132.0
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 132.0
+offset_bottom = 132.0
 mouse_filter = 0
 
 [node name="Bottom_Left" parent="VBoxContainer/GridBoard" instance=ExtResource( 5 )]
-margin_left = 136.0
-margin_top = 68.0
-margin_right = 200.0
-margin_bottom = 132.0
+offset_left = 136.0
+offset_top = 68.0
+offset_right = 200.0
+offset_bottom = 132.0
 
 [node name="Left_Right4" parent="VBoxContainer/GridBoard" instance=ExtResource( 4 )]
-margin_left = 204.0
-margin_top = 68.0
-margin_right = 268.0
-margin_bottom = 132.0
+offset_left = 204.0
+offset_top = 68.0
+offset_right = 268.0
+offset_bottom = 132.0
 
 [node name="Left_Right" parent="VBoxContainer/GridBoard" instance=ExtResource( 4 )]
-margin_left = 272.0
-margin_top = 68.0
-margin_right = 336.0
-margin_bottom = 132.0
+offset_left = 272.0
+offset_top = 68.0
+offset_right = 336.0
+offset_bottom = 132.0
 mouse_filter = 0
 
 [node name="End" parent="VBoxContainer/GridBoard" instance=ExtResource( 6 )]
-margin_left = 340.0
-margin_top = 68.0
-margin_right = 404.0
-margin_bottom = 132.0
+offset_left = 340.0
+offset_top = 68.0
+offset_right = 404.0
+offset_bottom = 132.0
 mouse_filter = 0
 
 [node name="InstructionalLabel" type="Label" parent="VBoxContainer"]
-margin_top = 136.0
-margin_right = 606.0
-margin_bottom = 169.0
+offset_top = 136.0
+offset_right = 606.0
+offset_bottom = 169.0
 text = "Work as fast as you can to complete the puzzles."
