@@ -1,6 +1,6 @@
 extends Control
 
-var _settings := {resolution = Vector2(1920, 1080), fullscreen = false, vsync = false}
+var _settings := {resolution = Vector2i(1920, 1080), fullscreen = false, vsync = false}
 
 func _ready():
 	self._settings.fullscreen = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
@@ -30,7 +30,7 @@ func _on_Save_btn_pressed():
 	var resolution = self.find_child("ResolutionOptionButton", true, false)
 	var res_str: String = resolution.get_item_text(resolution.get_selected_id())
 	var values := res_str.split_floats("x")
-	self._settings.resolution = Vector2(values[0], values[1])
+	self._settings.resolution = Vector2i(values[0], values[1])
 	
 	var fullscreen = self.find_child("FullScreenCheckBox", true, false)
 	self._settings.fullscreen = fullscreen.pressed

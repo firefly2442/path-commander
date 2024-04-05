@@ -1,21 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dsmovecbo8mwq"]
 
-[ext_resource path="res://scripts/instances/Fireworks_Particles.gd" type="Script" id=1]
-[ext_resource path="res://images/particles/flare_01.png" type="Texture2D" id=2]
+[ext_resource type="Script" path="res://scripts/instances/Fireworks_Particles.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d1g6oayq18fxh" path="res://images/particles/flare_01.png" id="2"]
 
-[sub_resource type="ParticleProcessMaterial" id=1]
-flag_disable_z = true
+[sub_resource type="ParticleProcessMaterial" id="1"]
 spread = 180.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 200.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
+gravity = Vector3(0, 98, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2(0.8, 0.8)
 amount = 40
+process_material = SubResource("1")
+texture = ExtResource("2")
 lifetime = 3.0
 explosiveness = 1.0
-process_material = SubResource( 1 )
-texture = ExtResource( 2 )
-script = ExtResource( 1 )
+script = ExtResource("1")

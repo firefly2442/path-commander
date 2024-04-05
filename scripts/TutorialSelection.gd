@@ -27,6 +27,7 @@ func _on_Tutorial_5_btn_pressed():
 func _swapTutorial():
 	get_tree().get_root().add_child(Game.level_node)
 	get_tree().set_current_scene(Game.level_node)
+	SceneSwitcher.current_scene = Game.level_node
 	var tut = get_tree().get_root().find_child("TutorialSelection", true, false)
 	get_tree().get_root().remove_child(tut)
 	tut.queue_free()
