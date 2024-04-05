@@ -21,8 +21,8 @@ script = ExtResource("1")
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1880.0
-offset_bottom = 1040.0
+offset_right = 1700.0
+offset_bottom = 900.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -33,7 +33,7 @@ theme_override_constants/separation = 10
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Path3D Commander"
+text = "Path Commander"
 
 [node name="Tutorial_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
